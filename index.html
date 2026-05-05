@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Интерпретатор машины Тьюринга — клиент-серверная обучающая система на C#/.NET и ASP.NET Core. Курсовой проект РИС-24-2.">
+    <meta name="keywords" content="машина тьюринга, turing machine, интерпретатор, C#, .NET, ASP.NET Core, SignalR, PostgreSQL, обучение информатике">
+    <meta name="author" content="Иван Новокрещенов">
+    <meta property="og:title" content="Интерпретатор машины Тьюринга">
+    <meta property="og:description" content="Клиент-серверная обучающая система для изучения теории алгоритмов">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://turing-ris.is-a.dev">
+    <title>Интерпретатор машины Тьюринга — Иван Новокрещенов, РИС-24-2</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <div class="logo-block">
+                <div class="logo-tape">
+                    <span class="cell">1</span><span class="cell">0</span><span class="cell head">1</span><span class="cell">1</span><span class="cell">0</span>
+                </div>
+            </div>
+            <h1>Интерпретатор машины Тьюринга</h1>
+            <p class="subtitle">Клиент-серверная обучающая система для изучения теории алгоритмов и формальных вычислений</p>
+            <div class="badges">
+                <span class="badge">C# / .NET Framework 4.8</span>
+                <span class="badge">ASP.NET Core 8</span>
+                <span class="badge">PostgreSQL</span>
+                <span class="badge">SignalR</span>
+                <span class="badge">WinForms</span>
+            </div>
+            <div class="cta">
+                <a href="#features" class="btn btn-primary">Возможности</a>
+                <a href="#architecture" class="btn btn-secondary">Архитектура</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="section">
+            <div class="container">
+                <h2>О проекте</h2>
+                <p class="lead">
+                    Полнофункциональная учебная платформа для проектирования и пошагового выполнения алгоритмов
+                    на абстрактной машине Тьюринга. Предоставляет преподавателю инструменты для создания заданий
+                    и проверки решений, а студентам — удобную среду для написания и отладки программ МТ.
+                </p>
+                <p>
+                    Проект разработан в рамках курсовой работы группы <strong>РИС-24-2</strong>
+                    как пример применения клиент-серверной архитектуры, ролевой модели доступа
+                    и асинхронных уведомлений в реальном времени.
+                </p>
+            </div>
+        </section>
+
+        <section id="features" class="section section-alt">
+            <div class="container">
+                <h2>Ключевые возможности</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-icon">🎯</div>
+                        <h3>Визуальный конструктор МТ</h3>
+                        <p>Интерактивная лента, таблица состояний и переходов, поддержка произвольного алфавита и редактирования ячеек по двойному клику.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">⚡</div>
+                        <h3>5 режимов выполнения</h3>
+                        <p>Пошаговое выполнение, запуск с регулируемой скоростью (от очень медленной до очень быстрой), мгновенное выполнение с защитой от зацикливания.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">👥</div>
+                        <h3>Ролевая модель</h3>
+                        <p>Три уровня доступа: <strong>Администратор</strong>, <strong>Преподаватель</strong>, <strong>Студент</strong>. У каждого — собственный набор окон и прав.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">📚</div>
+                        <h3>Управление курсами</h3>
+                        <p>Преподаватель создаёт курсы, привязывает группы, формирует задания пяти типов и настраивает индивидуальную формулу оценки.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">📝</div>
+                        <h3>Полный цикл сдачи работ</h3>
+                        <p>Черновики, отправка на проверку, отзыв работы до проверки, оценивание с комментарием преподавателя, отзыв оценки.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🔔</div>
+                        <h3>Real-time уведомления</h3>
+                        <p>Через SignalR клиент мгновенно узнаёт об изменении профиля, скрытии задания, удалении курса или принудительном завершении сессии.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🔐</div>
+                        <h3>Защищённая аутентификация</h3>
+                        <p>Хеширование паролей BCrypt, защита от перебора (5 попыток / 15 минут), запрет двойного входа, обязательная смена временного пароля.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">📊</div>
+                        <h3>Аналитика успеваемости</h3>
+                        <p>Автоматический расчёт итоговой оценки по гибкой формуле курса, детализация по каждому студенту, фильтры и поиск.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">💾</div>
+                        <h3>Импорт / экспорт программ</h3>
+                        <p>Сохранение конфигурации МТ в формате <code>.turing</code> и <code>.txt</code>, выгрузка истории выполнения по шагам.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="architecture" class="section">
+            <div class="container">
+                <h2>Архитектура</h2>
+                <div class="arch-grid">
+                    <div class="arch-block">
+                        <h3>🖥️ Клиент</h3>
+                        <ul>
+                            <li><strong>Платформа:</strong> Windows Forms, .NET Framework 4.8</li>
+                            <li><strong>Язык:</strong> C# 8.0</li>
+                            <li><strong>UI:</strong> кастомные контролы (TapeControl, TapeRenderer)</li>
+                            <li><strong>HTTP:</strong> HttpClient + Newtonsoft.Json</li>
+                            <li><strong>Real-time:</strong> Microsoft.AspNetCore.SignalR.Client</li>
+                        </ul>
+                    </div>
+                    <div class="arch-block">
+                        <h3>⚙️ Сервер</h3>
+                        <ul>
+                            <li><strong>Платформа:</strong> ASP.NET Core 8 (Minimal API)</li>
+                            <li><strong>ORM:</strong> Dapper (легковесный микро-ORM)</li>
+                            <li><strong>БД:</strong> PostgreSQL</li>
+                            <li><strong>Auth:</strong> сессионные токены + BCrypt.Net-Next</li>
+                            <li><strong>Push:</strong> SignalR Hub с автоматическим reconnect</li>
+                        </ul>
+                    </div>
+                    <div class="arch-block">
+                        <h3>🗄️ Слой данных</h3>
+                        <ul>
+                            <li>Users, Groups, Courses, CourseGroups</li>
+                            <li>Assignments, Submissions</li>
+                            <li>Sessions с защитой от двойного входа</li>
+                            <li>LoginAttempts (защита от перебора)</li>
+                            <li>Оптимистичная блокировка через <code>Version</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="screens" class="section section-alt">
+            <div class="container">
+                <h2>Технологический стек</h2>
+                <div class="tech-grid">
+                    <div class="tech-item">.NET Framework 4.8</div>
+                    <div class="tech-item">.NET 8</div>
+                    <div class="tech-item">C# 8.0</div>
+                    <div class="tech-item">ASP.NET Core</div>
+                    <div class="tech-item">SignalR</div>
+                    <div class="tech-item">PostgreSQL</div>
+                    <div class="tech-item">Dapper</div>
+                    <div class="tech-item">BCrypt</div>
+                    <div class="tech-item">Newtonsoft.Json</div>
+                    <div class="tech-item">WinForms</div>
+                    <div class="tech-item">Npgsql</div>
+                    <div class="tech-item">REST API</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="author" class="section">
+            <div class="container">
+                <h2>Автор</h2>
+                <div class="author-card">
+                    <div class="author-avatar">ИН</div>
+                    <div class="author-info">
+                        <h3>Иван Новокрещенов</h3>
+                        <p class="author-role">Студент группы РИС-24-2</p>
+                        <p>Курсовой проект по дисциплине, связанной с теорией алгоритмов и разработкой программного обеспечения.</p>
+                        <div class="author-links">
+                            <a href="https://github.com/StudUserRIS" class="link-btn" target="_blank" rel="noopener">GitHub профиль</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Иван Новокрещенов · РИС-24-2</p>
+            <p class="footer-sub">Сайт-визитка некоммерческого учебного проекта · Хостинг: <a href="https://is-a.dev" target="_blank" rel="noopener">is-a.dev</a> + GitHub Pages</p>
+        </div>
+    </footer>
+</body>
+</html>
